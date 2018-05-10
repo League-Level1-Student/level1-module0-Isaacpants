@@ -22,19 +22,22 @@ public class PhotoQuiz {
                 quizWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   // This will make sure the program exits when you close the window
 
 		// 1. find an image on the internet, and put its URL in a String variable (from your browser, right click on the image, and select “Copy Image Address”)
-
+String im = "http://images.wisegeek.com/duckling-in-water.jpg";
 		// 2. create a variable of type "Component" that will hold your image
-
+Component c;
 		// 3. use the "createImage()" method below to initialize your Component
-
+c = createImage(im);
 		// 4. add the image to the quiz window
-
+quizWindow.add(c);
 		// 5. call the pack() method on the quiz window
-
+quizWindow.pack();
 		// 6. ask a question that relates to the image
-
+String q = JOptionPane.showInputDialog("what is the volume of the water");
 		// 7. print "CORRECT" if the user gave the right answer
-
+if(q.equals("q")) {
+	
+	JOptionPane.showMessageDialog(null, "no");
+}
 		// 8. print "INCORRECT" if the answer is wrong
 
 		// 9. remove the component from the quiz window (you may not see the effect of this until step 12)
