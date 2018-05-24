@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 public class DrumKit implements MouseListener {
 
     JLabel drumLabelWithImage;
+    JLabel drumLabelWithImage2;
 
     public static void main(String[] args) throws Exception {
    	 new DrumKit().getGoing();
@@ -62,9 +63,9 @@ public class DrumKit implements MouseListener {
     String im = "cymbal.jpg";
   	 // 9. Edit the next line to use your String variable
 //drumLabelWithImage = createLabelImage(drumImageString);
-   drumLabelWithImage = createLabelImage(im);
+   drumLabelWithImage2 = createLabelImage(im);
   	 // 10. Add the image to the panel
-   jp.add(drumLabelWithImage);
+   jp.add(drumLabelWithImage2);
   	 // 11. Set the layout of the panel to "new GridLayout()"
    new GridLayout();
      	 // 12. call the pack() method on the frame.  Run your program. Do you see your drum image?
@@ -80,6 +81,7 @@ public class DrumKit implements MouseListener {
   	  
   	  // 13. add this mouse listener to drumLabelWithImage
   	drumLabelWithImage.addMouseListener(this);
+  	drumLabelWithImage2.addMouseListener(this);
     }
 
     public void mouseClicked(MouseEvent e) {
@@ -88,17 +90,27 @@ System.out.println("mouse clicked");
    	 JLabel drumClicked = (JLabel) e.getSource();  // This line gets the label that the mouse clicked on
    	 
    	 // 15. Download a drum sound and drop it into your "default package". You can find it on freesound.org. To download it, log in as leagueofamazing/code4life.
-   	 
+   	 if(drumClicked==drumLabelWithImage) {
+   		 
+   		playSound("drum.wav");
+   		 
+   	 }else {
+   		
+   		
+   		playSound("cymbal.wav");
+   		 
+   		 
+   	 }
    	 // 16. If they clicked on the drumImage...
 
    		 // 17. ...use the playSound method to play a drum sound. Test to see if it works
-playSound("drum.wav");
 
 
 
 
 
-playSound("cymbal.wav");
+
+
     }
 
     private JLabel createLabelImage(String fileName)
